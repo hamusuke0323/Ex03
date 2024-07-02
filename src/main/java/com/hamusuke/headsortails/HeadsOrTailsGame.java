@@ -28,6 +28,7 @@ public class HeadsOrTailsGame {
         System.out.println("Tossing a coin...");
         this.imitate();
         this.printResults();
+        this.printWonOrLost();
     }
 
     private void imitate() {
@@ -58,5 +59,12 @@ public class HeadsOrTailsGame {
 
     private String toResultString(Result result) {
         return result.getName() + ": " + this.getCount(result);
+    }
+
+    private void printWonOrLost() {
+        int heads = this.getCount(Result.HEADS);
+        int tails = this.getCount(Result.TAILS);
+
+        System.out.println("You " + (heads > tails ? "won" : "lost") + "!");
     }
 }
