@@ -26,19 +26,20 @@ public class HeadsOrTailsGame {
     }
 
     public void start() {
-        this.greet();
+        var userName = this.greet();
 
         System.out.println("Tossing a coin...");
         this.imitate();
         this.printResults();
-        this.printWonOrLost();
+        this.printWonOrLost(userName);
     }
 
-    private void greet() {
+    private String greet() {
         System.out.println("Who are you?");
         var scanner = new Scanner(System.in);
         var userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
+        return userName;
     }
 
     private void imitate() {
@@ -71,10 +72,10 @@ public class HeadsOrTailsGame {
         return result.getName() + ": " + this.getCount(result);
     }
 
-    private void printWonOrLost() {
+    private void printWonOrLost(String userName) {
         int heads = this.getCount(Result.HEADS);
         int tails = this.getCount(Result.TAILS);
 
-        System.out.println("You " + (heads > tails ? "won" : "lost") + "!");
+        System.out.println(userName + " " + (heads > tails ? "won" : "lost") + "!");
     }
 }
