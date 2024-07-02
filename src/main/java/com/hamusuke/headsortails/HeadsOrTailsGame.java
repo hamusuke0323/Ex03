@@ -3,6 +3,7 @@ package com.hamusuke.headsortails;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 
@@ -25,10 +26,19 @@ public class HeadsOrTailsGame {
     }
 
     public void start() {
+        this.greet();
+
         System.out.println("Tossing a coin...");
         this.imitate();
         this.printResults();
         this.printWonOrLost();
+    }
+
+    private void greet() {
+        System.out.println("Who are you?");
+        var scanner = new Scanner(System.in);
+        var userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
     }
 
     private void imitate() {
